@@ -1,0 +1,132 @@
+# SHCustomCrafting - recettes SkyHand (reprises de CustomCrafting)
+
+prefix: '&7&l« &e&lSH &8&l» &7'
+
+# Recettes vanilla supprimées au démarrage.
+# Les "armor_trim_smithing_template" sont les recettes de duplication des modèles de garniture.
+recettes-desactivees:
+  - minecraft:hopper
+  # 1.21 : le crafter automatise la compression (lingots -> blocs) et casse l'économie
+  - minecraft:crafter
+  # 1.21.6 : selle craftable (3 cuirs + 1 fer ~ 40) alors que le shop la reprend 1000
+  - minecraft:saddle
+  # 1.21.5 : lodestone au lingot de fer (valeur d'île 30 pour ~3) ; remplacée par la recette netherite (lodestone_netherite)
+  - minecraft:lodestone
+  # 1.21.6 : ghast séché -> ghast heureux, monture volante qui contourne le /fly
+  - minecraft:dried_ghast
+  # 1.21.11 : lances (fente qui propulse, déséquilibre l'arène)
+  - minecraft:wooden_spear
+  - minecraft:stone_spear
+  - minecraft:copper_spear
+  - minecraft:iron_spear
+  - minecraft:golden_spear
+  - minecraft:diamond_spear
+  - minecraft:netherite_spear_smithing
+  - minecraft:respawn_anchor
+  - minecraft:coast_armor_trim_smithing_template
+  - minecraft:dune_armor_trim_smithing_template
+  - minecraft:eye_armor_trim_smithing_template
+  - minecraft:host_armor_trim_smithing_template
+  - minecraft:raiser_armor_trim_smithing_template
+  - minecraft:rib_armor_trim_smithing_template
+  - minecraft:sentry_armor_trim_smithing_template
+  - minecraft:shaper_armor_trim_smithing_template
+  - minecraft:silence_armor_trim_smithing_template
+  - minecraft:snout_armor_trim_smithing_template
+  - minecraft:spire_armor_trim_smithing_template
+  - minecraft:tide_armor_trim_smithing_template
+  - minecraft:vex_armor_trim_smithing_template
+  - minecraft:ward_armor_trim_smithing_template
+  - minecraft:wayfinder_armor_trim_smithing_template
+  - minecraft:wild_armor_trim_smithing_template
+  # Modèles ajoutés en 1.21, absents de l'ancienne liste : décommenter pour les bloquer aussi
+  # - minecraft:bolt_armor_trim_smithing_template
+  # - minecraft:flow_armor_trim_smithing_template
+
+# Crafts bloqués : le résultat affiche un objet explicatif et le craft est refusé.
+crafts-bloques:
+  entonnoir:
+    forme: ['F F', 'FCF', ' F ']
+    ingredients:
+      F: IRON_INGOT
+      C: CHEST
+    affichage:
+      materiau: BARRIER
+      nom: '&cCraft désactivé'
+      lore:
+        - '&7Le craft des entonnoirs est'
+        - '&7désactivé, mais vous pouvez'
+        - '&7en obtenir dans les évènements'
+        - '&7journaliers (/event)'
+
+  crafter:
+    forme: ['FFF', 'FTF', 'RDR']
+    ingredients:
+      F: IRON_INGOT
+      T: CRAFTING_TABLE
+      R: REDSTONE
+      D: DROPPER
+    affichage:
+      materiau: BARRIER
+      nom: '&cCraft désactivé'
+      lore:
+        - '&7Le crafter est désactivé'
+        - '&7sur SkyHand.'
+
+# type: shaped (forme + ingredients) ou shapeless (liste d'ingredients)
+# livre: true pour afficher la recette dans le livre de recettes des joueurs
+# nom-contient: n'accepte l'ingrédient que si son nom contient ce texte
+recettes:
+  # Lodestone avec un lingot de netherite, comme avant la 1.21.5
+  lodestone_netherite:
+    type: shaped
+    forme: ['CCC', 'CNC', 'CCC']
+    ingredients:
+      C: CHISELED_STONE_BRICKS
+      N: NETHERITE_INGOT
+    resultat: LODESTONE
+    livre: true
+  neige_poudreuse:
+    type: shaped
+    forme: ['SSS', 'SBS', 'SSS']
+    ingredients:
+      S: SNOWBALL
+      B: BUCKET
+    resultat: POWDER_SNOW_BUCKET
+    livre: true
+  poisson_clown:
+    type: shapeless
+    ingredients: [TROPICAL_FISH, WATER_BUCKET]
+    resultat: TROPICAL_FISH_BUCKET
+    livre: true
+  poisson_globe:
+    type: shapeless
+    ingredients: [PUFFERFISH, WATER_BUCKET]
+    resultat: PUFFERFISH_BUCKET
+    livre: true
+  poisson_morue:
+    type: shapeless
+    ingredients: [COD, WATER_BUCKET]
+    resultat: COD_BUCKET
+    livre: true
+  poisson_saumon:
+    type: shapeless
+    ingredients: [SALMON, WATER_BUCKET]
+    resultat: SALMON_BUCKET
+    livre: true
+  minecart_hopper:
+    type: shapeless
+    ingredients: [HOPPER_MINECART]
+    resultat: HOPPER
+    livre: true
+  # Les "Entonnoirs spéciaux" (II, V, ...) redeviennent un entonnoir classique
+  entonnoir_special:
+    type: shapeless
+    ingredients: [HOPPER]
+    nom-contient: 'Entonnoir spécial'
+    resultat: HOPPER
+    livre: false
+
+messages:
+  craft-bloque: '&7Ce craft est &cdésactivé&7.'
+  recharge: '&7Recettes &arechargées &7({count}).'

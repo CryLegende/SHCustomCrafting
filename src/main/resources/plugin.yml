@@ -1,0 +1,18 @@
+name: SHCustomCrafting
+version: '${project.version}'
+main: org.Cry_Legende.sHCustomCrafting.SHCustomCrafting
+api-version: '1.21'
+author: Cry_Legende
+description: Recettes SkyHand et crafts vanilla désactivés (remplace CustomCrafting).
+
+commands:
+  shcustomcrafting:
+    description: Recharge les recettes.
+    usage: /<command> reload
+    permission: shcustomcrafting.admin
+    aliases: [shcc]
+
+permissions:
+  shcustomcrafting.admin:
+    description: Recharger les recettes.
+    default: op
