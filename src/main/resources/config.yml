@@ -5,6 +5,24 @@ prefix: '&7&l« &e&lSH &8&l» &7'
 # Recettes vanilla supprimées au démarrage.
 # Les "armor_trim_smithing_template" sont les recettes de duplication des modèles de garniture.
 recettes-desactivees:
+  # 1.21.2 : bundle (stockage et vol d'objets dans les menus des anciens plugins), dont les 16 couleurs
+  - minecraft:bundle
+  - minecraft:white_bundle
+  - minecraft:light_gray_bundle
+  - minecraft:gray_bundle
+  - minecraft:black_bundle
+  - minecraft:brown_bundle
+  - minecraft:red_bundle
+  - minecraft:orange_bundle
+  - minecraft:yellow_bundle
+  - minecraft:lime_bundle
+  - minecraft:green_bundle
+  - minecraft:cyan_bundle
+  - minecraft:light_blue_bundle
+  - minecraft:blue_bundle
+  - minecraft:purple_bundle
+  - minecraft:magenta_bundle
+  - minecraft:pink_bundle
   - minecraft:hopper
   # 1.21 : le crafter automatise la compression (lingots -> blocs) et casse l'économie
   - minecraft:crafter
