@@ -22,13 +22,22 @@ Utilisé sur : **Opale**.
 
 | Commande | Alias | Description | Permission |
 |---|---|---|---|
-| `/shcustomcrafting` | `/shcc` | Recharge les recettes. | `shcustomcrafting.admin` |
+| `/shcustomcrafting reload` | `/shcc reload` | Relit `config.yml` et `messages.yml` puis réapplique les recettes ; les recettes vanilla sorties de `recettes-desactivees` sont rétablies. Un fichier illisible ne change rien. | `shcustomcrafting.admin.reload` |
+| `/shcustomcrafting list` | `/shcc list` | Liste les recettes personnalisées, les crafts bloqués et les recettes vanilla retirées. | `shcustomcrafting.admin.list` |
+
+Sans argument, ou avec une sous-commande inconnue, une ligne d'usage ne liste que les sous-commandes permises à l'expéditeur. Les deux sous-commandes marchent depuis la console.
 
 ## Permissions
 
 | Permission | Description | Par défaut |
 |---|---|---|
-| `shcustomcrafting.admin` | Recharger les recettes. | `op` |
+| `shcustomcrafting.admin` | Toute l'administration (parent des deux nœuds suivants). | `op` |
+| `shcustomcrafting.admin.reload` | Recharger les recettes. | `op` |
+| `shcustomcrafting.admin.list` | Lister les recettes. | `op` |
+
+## Messages
+
+Les textes sont dans `messages.yml`. Au premier démarrage avec cette version, il est créé à partir de `prefix` et de la section `messages` du `config.yml` existant, qui ne sont plus lus ensuite.
 
 ## Configuration
 
@@ -36,7 +45,8 @@ Fichiers par défaut repris du serveur (secrets remplacés par `CHANGE_ME`). Cli
 
 <pre>
 plugins/SHCustomCrafting/
-└── <a href="src/main/resources/config.yml">config.yml</a>
+├── <a href="src/main/resources/config.yml">config.yml</a>
+└── <a href="src/main/resources/messages.yml">messages.yml</a>
 </pre>
 
 ## Compilation

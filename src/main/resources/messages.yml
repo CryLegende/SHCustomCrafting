@@ -1,0 +1,26 @@
+# Messages de SHCustomCrafting. Couleurs avec &. Un message vide ("") n'est pas envoyé.
+#
+# Variables :
+#   %subcommands%  sous-commandes que l'expéditeur peut utiliser, séparées par |
+#   %count%        nombre de recettes
+#   %disabled%     recettes vanilla retirées
+#   %restored%     recettes vanilla rétablies
+#   %names%        liste de noms
+#   %id% %detail%  recette et son résumé
+#   %file%         fichier illisible
+#   %error%        première ligne de l'erreur du fichier
+
+craft-blocked: "&7&l« &e&lSH &8&l» &7Ce craft est &cdésactivé&7."
+no-permission: "&7&l« &f&lSH &8&l» &fCommande inconnue, essayez autre chose."
+usage: "&7&l« &6&lSH &8&l» &7Utilisation : &6/shcustomcrafting <%subcommands%>"
+reload-ok: "&7&l« &e&lSH &8&l» &7Recettes &arechargées &7(%count%)."
+reload-details: "&8• &7Recettes vanilla retirées : &f%disabled%&7, rétablies : &f%restored%&7."
+reload-problem: "&8• &e%detail%"
+reload-unknown: "&8• &7Recettes vanilla introuvables dans la liste : &e%names%&7."
+reload-restart: "&8• &7Recettes vanilla impossibles à rétablir à chaud (redémarrage nécessaire) : &c%names%&7."
+reload-error: "&7&l« &c&lSH &8&l» &7Rechargement annulé, &crien n'a été changé&7. Fichier &c%file%&7 : &c%error%"
+list-header: "&7&l« &6&lSH &8&l» &6%count% &7recette(s) personnalisée(s) :"
+list-recipe: "&8• &f%id% &7(%detail%)"
+list-blocked: "&7&l« &6&lSH &8&l» &7Crafts bloqués : &6%count% &7(%names%)"
+list-vanilla: "&7&l« &6&lSH &8&l» &7Recettes vanilla retirées : &6%count%"
+list-unknown: "&7&l« &e&lSH &8&l» &7Introuvables dans recettes-desactivees : &e%names%&7."

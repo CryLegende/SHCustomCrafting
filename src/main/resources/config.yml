@@ -1,6 +1,30 @@
-# SHCustomCrafting - recettes SkyHand (reprises de CustomCrafting)
-
-prefix: '&7&l« &e&lSH &8&l» &7'
+# ======================================================================== #
+# SHCustomCrafting
+#
+# Plugin : retire des recettes vanilla, bloque certains crafts (le résultat affiche un objet explicatif) et ajoute des
+# recettes SkyHand, avec un livre de recettes pour les joueurs.
+#
+# Commande (alias : /shcc) :
+#   /shcustomcrafting reload   Relit config.yml et messages.yml puis réapplique les recettes : les recettes vanilla
+#                              sorties de la liste sont rétablies, celles qui y entrent sont retirées. Un fichier
+#                              illisible ne change rien.
+#   /shcustomcrafting list     Liste les recettes personnalisées, les crafts bloqués et le nombre de recettes vanilla
+#                              retirées, avec les entrées de recettes-desactivees introuvables.
+#
+# Permissions (par défaut : op) :
+#   shcustomcrafting.admin          Toutes les sous-commandes.
+#   shcustomcrafting.admin.reload   /shcustomcrafting reload
+#   shcustomcrafting.admin.list     /shcustomcrafting list
+#
+# Les textes (craft bloqué, rechargement...) sont dans messages.yml.
+#
+# Sections :
+#   recettes-desactivees   Identifiants des recettes vanilla à retirer (minecraft:hopper...).
+#   crafts-bloques         forme et ingredients du craft à bloquer, affichage (materiau, nom, lore) de l'objet résultat.
+#   recettes               type (shaped avec forme + ingredients, ou shapeless avec une liste d'ingredients), resultat,
+#                          quantite, livre (true : visible dans le livre de recettes), nom-contient (n'accepte
+#                          l'ingrédient que si son nom contient ce texte).
+# ======================================================================== #
 
 # Recettes vanilla supprimées au démarrage.
 # Les "armor_trim_smithing_template" sont les recettes de duplication des modèles de garniture.
@@ -57,9 +81,15 @@ recettes-desactivees:
   - minecraft:ward_armor_trim_smithing_template
   - minecraft:wayfinder_armor_trim_smithing_template
   - minecraft:wild_armor_trim_smithing_template
-  # Modèles ajoutés en 1.21, absents de l'ancienne liste : décommenter pour les bloquer aussi
-  # - minecraft:bolt_armor_trim_smithing_template
-  # - minecraft:flow_armor_trim_smithing_template
+  # Modèles ajoutés en 1.21, absents de l'ancienne liste : duplication bloquée aussi
+  - minecraft:bolt_armor_trim_smithing_template
+  - minecraft:flow_armor_trim_smithing_template
+  # 26.1 : étiquette craftable (1 papier + 1 pépite ~ 2) alors que le shop la reprend 1500
+  - minecraft:name_tag
+  # 1.21.4 : cœur du creaking (2 bûches de chêne pâle + 1 bloc de résine) et brique de résine (cuisson d'une mèche) :
+  # une ferme à résine vanilla rendrait gratuit le rituel du boss Creaking (cœur 300 000 + 10 briques en boutique)
+  - minecraft:creaking_heart
+  - minecraft:resin_brick
 
 # Crafts bloqués : le résultat affiche un objet explicatif et le craft est refusé.
 crafts-bloques:
@@ -144,7 +174,3 @@ recettes:
     nom-contient: 'Entonnoir spécial'
     resultat: HOPPER
     livre: false
-
-messages:
-  craft-bloque: '&7Ce craft est &cdésactivé&7.'
-  recharge: '&7Recettes &arechargées &7({count}).'

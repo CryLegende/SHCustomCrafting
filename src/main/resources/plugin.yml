@@ -7,12 +7,20 @@ description: Recettes SkyHand et crafts vanilla désactivés (remplace CustomCra
 
 commands:
   shcustomcrafting:
-    description: Recharge les recettes.
-    usage: /<command> reload
-    permission: shcustomcrafting.admin
+    description: Recharge ou liste les recettes.
+    usage: /<command> <reload|list>
     aliases: [shcc]
 
 permissions:
   shcustomcrafting.admin:
-    description: Recharger les recettes.
+    description: Toute l'administration de SHCustomCrafting
+    default: op
+    children:
+      shcustomcrafting.admin.reload: true
+      shcustomcrafting.admin.list: true
+  shcustomcrafting.admin.reload:
+    description: Recharger les recettes
+    default: op
+  shcustomcrafting.admin.list:
+    description: Lister les recettes
     default: op
