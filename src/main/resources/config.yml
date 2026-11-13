@@ -29,84 +29,16 @@
 # Recettes vanilla supprimées au démarrage.
 # Les "armor_trim_smithing_template" sont les recettes de duplication des modèles de garniture.
 recettes-desactivees:
-  # 1.21.2 : bundle (stockage et vol d'objets dans les menus des anciens plugins), dont les 16 couleurs
+  # 1.21.2 : bundle, dont les 16 couleurs (ici deux exemples)
   - minecraft:bundle
   - minecraft:white_bundle
-  - minecraft:light_gray_bundle
-  - minecraft:gray_bundle
-  - minecraft:black_bundle
-  - minecraft:brown_bundle
-  - minecraft:red_bundle
-  - minecraft:orange_bundle
-  - minecraft:yellow_bundle
-  - minecraft:lime_bundle
-  - minecraft:green_bundle
-  - minecraft:cyan_bundle
-  - minecraft:light_blue_bundle
-  - minecraft:blue_bundle
-  - minecraft:purple_bundle
-  - minecraft:magenta_bundle
-  - minecraft:pink_bundle
-  - minecraft:hopper
-  # 1.21 : le crafter automatise la compression (lingots -> blocs) et casse l'économie
+  # 1.21 : le crafter automatise la compression (lingots -> blocs)
   - minecraft:crafter
-  # 1.21.6 : selle craftable (3 cuirs + 1 fer ~ 40) alors que le shop la reprend 1000
-  - minecraft:saddle
-  # 1.21.5 : lodestone au lingot de fer (valeur d'île 30 pour ~3) ; remplacée par la recette netherite (lodestone_netherite)
-  - minecraft:lodestone
-  # 1.21.6 : ghast séché -> ghast heureux, monture volante qui contourne le /fly
-  - minecraft:dried_ghast
-  # 1.21.11 : lances (fente qui propulse, déséquilibre l'arène)
-  - minecraft:wooden_spear
-  - minecraft:stone_spear
-  - minecraft:copper_spear
-  - minecraft:iron_spear
-  - minecraft:golden_spear
-  - minecraft:diamond_spear
-  - minecraft:netherite_spear_smithing
-  - minecraft:respawn_anchor
+  # Duplication d'un modèle de garniture
   - minecraft:coast_armor_trim_smithing_template
-  - minecraft:dune_armor_trim_smithing_template
-  - minecraft:eye_armor_trim_smithing_template
-  - minecraft:host_armor_trim_smithing_template
-  - minecraft:raiser_armor_trim_smithing_template
-  - minecraft:rib_armor_trim_smithing_template
-  - minecraft:sentry_armor_trim_smithing_template
-  - minecraft:shaper_armor_trim_smithing_template
-  - minecraft:silence_armor_trim_smithing_template
-  - minecraft:snout_armor_trim_smithing_template
-  - minecraft:spire_armor_trim_smithing_template
-  - minecraft:tide_armor_trim_smithing_template
-  - minecraft:vex_armor_trim_smithing_template
-  - minecraft:ward_armor_trim_smithing_template
-  - minecraft:wayfinder_armor_trim_smithing_template
-  - minecraft:wild_armor_trim_smithing_template
-  # Modèles ajoutés en 1.21, absents de l'ancienne liste : duplication bloquée aussi
-  - minecraft:bolt_armor_trim_smithing_template
-  - minecraft:flow_armor_trim_smithing_template
-  # 26.1 : étiquette craftable (1 papier + 1 pépite ~ 2) alors que le shop la reprend 1500
-  - minecraft:name_tag
-  # 1.21.4 : cœur du creaking (2 bûches de chêne pâle + 1 bloc de résine) et brique de résine (cuisson d'une mèche) :
-  # une ferme à résine vanilla rendrait gratuit le rituel du boss Creaking (cœur 300 000 + 10 briques en boutique)
-  - minecraft:creaking_heart
-  - minecraft:resin_brick
 
 # Crafts bloqués : le résultat affiche un objet explicatif et le craft est refusé.
 crafts-bloques:
-  entonnoir:
-    forme: ['F F', 'FCF', ' F ']
-    ingredients:
-      F: IRON_INGOT
-      C: CHEST
-    affichage:
-      materiau: BARRIER
-      nom: '&cCraft désactivé'
-      lore:
-        - '&7Le craft des entonnoirs est'
-        - '&7désactivé, mais vous pouvez'
-        - '&7en obtenir dans les évènements'
-        - '&7journaliers (/event)'
-
   crafter:
     forme: ['FFF', 'FTF', 'RDR']
     ingredients:
@@ -119,21 +51,12 @@ crafts-bloques:
       nom: '&cCraft désactivé'
       lore:
         - '&7Le crafter est désactivé'
-        - '&7sur SkyHand.'
+        - '&7sur ce serveur.'
 
 # type: shaped (forme + ingredients) ou shapeless (liste d'ingredients)
 # livre: true pour afficher la recette dans le livre de recettes des joueurs
 # nom-contient: n'accepte l'ingrédient que si son nom contient ce texte
 recettes:
-  # Lodestone avec un lingot de netherite, comme avant la 1.21.5
-  lodestone_netherite:
-    type: shaped
-    forme: ['CCC', 'CNC', 'CCC']
-    ingredients:
-      C: CHISELED_STONE_BRICKS
-      N: NETHERITE_INGOT
-    resultat: LODESTONE
-    livre: true
   neige_poudreuse:
     type: shaped
     forme: ['SSS', 'SBS', 'SSS']
@@ -142,32 +65,12 @@ recettes:
       B: BUCKET
     resultat: POWDER_SNOW_BUCKET
     livre: true
-  poisson_clown:
-    type: shapeless
-    ingredients: [TROPICAL_FISH, WATER_BUCKET]
-    resultat: TROPICAL_FISH_BUCKET
-    livre: true
-  poisson_globe:
-    type: shapeless
-    ingredients: [PUFFERFISH, WATER_BUCKET]
-    resultat: PUFFERFISH_BUCKET
-    livre: true
   poisson_morue:
     type: shapeless
     ingredients: [COD, WATER_BUCKET]
     resultat: COD_BUCKET
     livre: true
-  poisson_saumon:
-    type: shapeless
-    ingredients: [SALMON, WATER_BUCKET]
-    resultat: SALMON_BUCKET
-    livre: true
-  minecart_hopper:
-    type: shapeless
-    ingredients: [HOPPER_MINECART]
-    resultat: HOPPER
-    livre: true
-  # Les "Entonnoirs spéciaux" (II, V, ...) redeviennent un entonnoir classique
+  # Un entonnoir renommé « Entonnoir spécial » redevient un entonnoir classique
   entonnoir_special:
     type: shapeless
     ingredients: [HOPPER]
